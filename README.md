@@ -1,4 +1,5 @@
 Visual Basic GUI Calculator
+
 Overview
 A simple calculator application created using Visual Basic, supporting basic arithmetic operations, square and square root calculations, and binary to decimal conversion.
 
@@ -9,13 +10,7 @@ Binary to Decimal Conversion
 Clear and Correct Functions
 Screenshot
 
-Installation
-Clone the repository:
-sh
-Copy code
-git clone https://github.com/yourusername/your-repo-name.git
-Open the project in Visual Basic.
-Build and run the application.
+
 Usage
 Number Buttons (0-9)
 *Operations (+, -, , /)
