@@ -1,110 +1,199 @@
 
-Dim redBtn1, redBtn2, redBtn3, redBtn4, greenBtn1 As Integer
-Dim x, i, var As Integer
 
+Dim result As Double
 
-Public Function redFunction(a As Integer)
-    If (a = 0) Then
-        If (redBtn1 = 0) Then
-                Command1.Move 9720, 1440
-        End If
-        If ((redBtn1 > 0 And redBtn1 <= 5) Or (redBtn1 > 10 And redBtn1 < 13) Or (redBtn1 >= 18 And redBtn1 < 24)) Then
-            Command1.Top = Command1.Top + 600
-        End If
-        If ((redBtn1 >= 5 And redBtn1 < 11) Or (redBtn1 > 12 And redBtn1 <= 18) Or (redBtn1 >= 24)) Then
-            If (redBtn1 < 13) Then
-                    Command1.Left = Command1.Left + 600
-            Else
-                    Command1.Left = Command1.Left - 600
-            End If
-        End If
-    ElseIf (a = 1) Then
-    
-                If (redBtn2 = 0) Then
-                Command2.Move 9720, 1440
-                
-        End If
-        If ((redBtn2 > 0 And redBtn2 <= 5) Or (redBtn2 > 10 And redBtn2 < 13)) Then
-                Command2.Top = Command2.Top + 600
-        End If
-        If ((redBtn2 >= 5 And redBtn2 < 11) Or redBtn2 > 12) Then
-            If (redBtn2 < 13) Then
-                    Command2.Left = Command2.Left + 600
-            Else
-                    Command2.Left = Command2.Left - 600
-            End If
-        End If
-    ElseIf (a = 2) Then
-    
-                If (redBtn3 = 0) Then
-                red3.Move 9720, 1440
-                
-        End If
-        If ((redBtn3 > 0 And redBtn3 <= 5) Or (redBtn3 > 10 And redBtn3 < 13)) Then
-                red3.Top = red3.Top + 600
-        End If
-        If ((redBtn3 >= 5 And redBtn3 < 11) Or redBtn3 > 12) Then
-            If (redBtn3 < 13) Then
-                    red3.Left = red3.Left + 600
-            Else
-                    red3.Left = red3.Left - 600
-            End If
-        End If
-    End If
-    
-    
-End Function
-Public Function greenFunction(a As Integer)
-    If (greenBtn1 = 0) Then
-                green1.Move 12720, 5640
-        End If
-        If ((greenBtn1 > 0 And greenBtn1 <= 5) Or (greenBtn1 > 10 And greenBtn1 < 13)) Then
-                green1.Left = green1.Left - 600
-        End If
-        If ((greenBtn1 >= 5 And greenBtn1 < 11) Or greenBtn1 > 12) Then
-            If (greenBtn1 < 13) Then
-                    green1.Top = green1.Top + 600
-                    green1.Appearance
-                    
-            Else
-                    green1.Top = green1.Top - 600
-            End If
-        End If
-End Function
-Public Function green(a As Integer)
-    If (greenBtn1 + 13 = redBtn1 And redBtn1 <> 14) Then
-    
-        Command1.Move 11280, 1800
-        redBtn1 = 0
-    End If
-End Function
+Dim a, b, c, dcml, bnry, cnt, power, j, i, temp    As Long
+Dim numbers(20) As Integer
+Dim sign  As String
 
-Private Sub Command1_Click()
+Private Sub binary_Click(Index As Integer)
+bnry = (display.Text)
+i = 0
+cnt = 0
+        While (bnry <> 0)
+            numbers(0) = 3
+            bnry = bnry / 10
+            cnt = cnt + 1
+            i = i + 1
+        Wend
+        For i = 0 To c
+            power = 1
+            If (i <> 0) Then
+                For j = 1 To i
+                    power = power * 2
+                Next j
+                End If
 
-redFunction (0)
-redBtn1 = redBtn1 + 1
+            If (numbers(i) = 1) Then
+                dcml = dcml + power
+            End If
+        Next i
+display.Text = ""
+display.Text = dcml
 
 End Sub
-Private Sub red2_Click()
+
+Private Sub clear_Click(Index As Integer)
+display.Text = ""
+a = 0
+b = 0
+
 End Sub
 
-Private Sub Command2_Click()
-redFunction (1)
 
-redBtn2 = redBtn2 + 1
+Private Sub Command6_Click(Index As Integer)
+display.Text = display.Text & 6
 End Sub
 
-Private Sub green1_Click()
-greenFunction (0)
-greenBtn1 = greenBtn1 + 1
-green (0)
+Private Sub Command10_Click(Index As Integer)
+display.Text = display.Text & 0
 End Sub
 
-Private Sub red3_Click()
-redFunction (2)
-redBtn3 = redBtn3 + 1
+Private Sub correct_Click(Index As Integer)
+i = Val(display.Text)
 
-
+display.Text = ""
+If i >= 10 Then
+i = i / 10
+display.Text = i
+Else
+display.Text = ""
+End If
+ i = 0
  
 End Sub
 
+Private Sub divide_Click()
+a = display.Text
+sign = "/"
+display.Text = ""
+End Sub
+
+Private Sub dot_Click(Index As Integer)
+display.Text = display.Text & "."
+End Sub
+
+Private Sub doubleZero_Click(Index As Integer)
+display.Text = display.Text & 0
+display.Text = display.Text & 0
+End Sub
+
+Private Sub eight_Click(Index As Integer)
+display.Text = display.Text & 8
+End Sub
+
+Private Sub equal_Click(Index As Integer)
+
+b = Val(display.Text)
+display.Text = ""
+If (sign = "*") Then
+    c = a * b
+    display.Text = c
+ElseIf (sign = "+") Then
+    c = a + b
+    display.Text = c
+
+ElseIf (sign = "-") Then
+    c = a - b
+    display.Text = c
+
+ElseIf (sign = "/") Then
+    c = a / b
+    display.Text = c
+
+End If
+a = c
+End Sub
+
+Private Sub exit_Click(Index As Integer)
+Unload Me
+End Sub
+
+Private Sub five_Click(Index As Integer)
+display.Text = display.Text & 5
+End Sub
+
+Private Sub four_Click(Index As Integer)
+display.Text = display.Text & 4
+End Sub
+
+Private Sub mul_Click()
+a = display.Text
+sign = "*"
+display.Text = ""
+End Sub
+
+Private Sub nine_Click(Index As Integer)
+display.Text = display.Text & 9
+End Sub
+
+Private Sub one_Click(Index As Integer)
+display.Text = display.Text & 1
+
+End Sub
+
+Private Sub seven_Click(Index As Integer)
+display.Text = display.Text & 7
+End Sub
+
+Private Sub six_Click(Index As Integer)
+display.Text = display.Text & 6
+End Sub
+
+Private Sub sqr_Click(Index As Integer)
+a = display.Text
+a = a * a
+display.Text = a
+
+End Sub
+
+Private Sub sqrRoot_Click(Index As Integer)
+    a = display.Text
+  
+    cnt = 0
+    i = 1
+    While (a > 0)
+    
+         a = a - i
+         cnt = cnt + 1
+         i = i + 2
+     Wend
+     a = cnt * cnt
+     If a = display.Text Then
+     display.Text = cnt
+     Else
+        cnt = cnt - 1
+        temp = cnt * cnt
+        temp = display.Text - temp
+        result = cnt + ((temp) / (2 * cnt))
+        display.Text = result
+     End If
+     
+     
+     
+    
+End Sub
+
+Private Sub sub_Click(Index As Integer)
+a = display.Text
+sign = "-"
+display.Text = ""
+End Sub
+
+Private Sub sum_Click(Index As Integer)
+a = display.Text
+sign = "+"
+display.Text = ""
+End Sub
+
+Private Sub three_Click(Index As Integer)
+display.Text = display.Text & 3
+End Sub
+
+Private Sub two_Click(Index As Integer)
+display.Text = display.Text & 2
+End Sub
+
+Private Sub zero_Click(Index As Integer)
+display.Text = display.Text & 0
+End Sub
